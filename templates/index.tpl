@@ -14,11 +14,56 @@
 
 {% block main %}
 
-<div class="row">
-	<div class="col-md-1 left"></div>
-	<div class="col-md-10 middle">
-	</div>
-	<div class="col-md-1 right"></div>
+<div id="survey-compare" class="row">
+    <section class="col-lg-12">
+        <div class="container">
+            <div class="col-lg-12">
+                <h1>you like...?</h1>
+                <h3>blah blah</h3>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <div id="compare-left" class="compare-block">
+                        <div class="img-container">
+                            image
+                        </div>
+                        <div class="like-container">
+                            like
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="compare-right" class="compare-block">
+                        <div class="img-container">
+                            image
+                        </div>
+                        <div class="like-container">
+                            like
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
+
+<div id="survey-compare" class="row">
+    <section class="col-lg-12">
+        <div class="container">
+            <div class="col-lg-12">
+                <h1>scenario</h1>
+                <h3>blah blah</h3>
+            </div>
+            <div class="col-lg-12">
+                {% for scenario in scenarios %}
+                <div class="scenario-box">
+                    {{ scenario }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
 
 {% endblock %}

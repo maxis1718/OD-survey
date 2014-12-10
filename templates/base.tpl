@@ -40,13 +40,14 @@
 </head>
 
 <body>
-<div id="navbar-top" class="navbar navbar-fixed-top" role="navigation">
+<!-- <div id="navbar-top" class="navbar navbar-fixed-top" role="navigation">
     <div class="navbar-header">{{ title }}</div>
-</div>
+</div> -->
 
 
 <!-- main block -->
-<div class="container main-block-wrap">
+<!-- <div class="container main-block-wrap"> -->
+<div class="container">
     {% block main %}
     {% endblock %}
 </div>
