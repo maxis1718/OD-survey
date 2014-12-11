@@ -63,7 +63,28 @@ body div.container
   background: #9bcb01;
   margin-left: 36px;
   margin-bottom: 36px;
+  position: relative;
 }
+  .scenario-box .box-bg
+  {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+  }
+  .scenario-box .box-text
+  {
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    top: 54px;
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    /*background: black ;*/
+  }
 
 #gender-block .info-box
 {
@@ -79,6 +100,7 @@ body div.container
   #gender-block .info-box .box-wrap
   {
     width: 100%;
+    height: 100%;
   }
     #gender-block .info-box .box-wrap img
     {

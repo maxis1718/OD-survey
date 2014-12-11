@@ -51,13 +51,14 @@
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12">
-                <h1>scenario</h1>
-                <h3>哪些地方想用 app 點菜?</h3>
+                <h1>哪些地方</h1>
+                <h3>想用 app 點菜?</h3>
             </div>
             <div class="col-lg-12">
                 {% for scenario in scenarios %}
                 <div class="scenario-box">
-                    {{ scenario }}
+                    <div class="box-bg"></div>
+                    <div class="box-text">{{ scenario }}</div>
                 </div>
                 {% endfor %}
             </div>
@@ -69,13 +70,14 @@
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12">
-                <h1>scenario</h1>
-                <h3>哪些地方"不"想用 app 點菜?</h3>
+                <h1>哪些地方</h1>
+                <h3><b>不</b> 想用 app 點菜?</h3>
             </div>
             <div class="col-lg-12">
                 {% for scenario in scenarios %}
                 <div class="scenario-box">
-                    {{ scenario }}
+                    <div class="box-bg"></div>
+                    <div class="box-text">{{ scenario }}</div>
                 </div>
                 {% endfor %}
             </div>
