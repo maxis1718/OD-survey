@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def show_index():
-    scenarios = [u'café', u'熱炒', u'居酒屋', u'拉麵', u'酒吧', u'下午茶', u'早餐店']
+    scenarios = [ (u'café', 'cafe'), (u'熱炒', "taiwan"), (u'居酒屋', 'izakaya'), (u'拉麵', 'ramen'), (u'酒吧', 'bar'), (u'下午茶', 'tea'), (u'早餐店', 'brunch')]
     return render_template( 'index.tpl', title=settings.SITE_TITLE, scenarios=scenarios )
 
 if __name__ == "__main__":

@@ -17,29 +17,35 @@
 <div id="survey-compare" class="row">
     <section class="col-lg-12">
         <div class="container">
-            <div class="col-lg-12">
+            <div class="col-lg-12 header">
                 <h1>you like...?</h1>
                 <h3>blah blah</h3>
+                <img class="hidden" src="{{ url_for('static', filename='img/like-button-blue.png') }}" />
+                <img class="hidden" src="{{ url_for('static', filename='img/like-button-gray.png') }}" />                
             </div>
             <div class="col-lg-12">
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     <div id="compare-left" class="compare-block">
                         <div class="img-container">
-                            image
+                            <img src="{{ url_for('static', filename='img/5s_display_large_2x.png') }}" />
+                            <div class="content">
+                                <a href="https://www.fluidui.com/editor/live/preview/p_mhTesNKF2lLgFbCHX1xUEeccb0aQg8BD.1419868694068" target="_blank">
+                                    <img src="{{ url_for('static', filename='img/odapp.png') }}">
+                                </a>
+                            </div>
+                            <div class="like-btn"></div>
                         </div>
-                        <div class="like-container">
-                            like
-                        </div>
+                        <!-- <div class="like-container">like</div> -->
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     <div id="compare-right" class="compare-block">
                         <div class="img-container">
-                            image
+                            <img src="{{ url_for('static', filename='img/5s_display_large_2x.png') }}" />
+                            <div class="content">iframe</div>
+                            <div class="like-btn"></div>                          
                         </div>
-                        <div class="like-container">
-                            like
-                        </div>
+                        <!-- <div class="like-container">like</div> -->
                     </div>
                 </div>
             </div>
@@ -50,14 +56,16 @@
 <div id="survey-compare" class="row">
     <section class="col-lg-12">
         <div class="container">
-            <div class="col-lg-12">
+            <div class="col-lg-12 header">
                 <h1>哪些地方</h1>
                 <h3>想用 app 點菜?</h3>
             </div>
             <div class="col-lg-12">
-                {% for scenario in scenarios %}
+                {% for scenario, src in scenarios %}
                 <div class="scenario-box">
-                    <div class="box-bg"></div>
+                    <div class="box-bg">
+                        <img src="{{ url_for('static', filename='images/'+src+'.png') }}">
+                    </div>
                     <div class="box-text">{{ scenario }}</div>
                 </div>
                 {% endfor %}
@@ -69,14 +77,16 @@
 <div id="survey-compare" class="row">
     <section class="col-lg-12">
         <div class="container">
-            <div class="col-lg-12">
+            <div class="col-lg-12 header">
                 <h1>哪些地方</h1>
-                <h3><b>不</b> 想用 app 點菜?</h3>
+                <h3><strong>不</strong> 想用 app 點菜?</h3>
             </div>
             <div class="col-lg-12">
-                {% for scenario in scenarios %}
+                {% for scenario, src in scenarios %}
                 <div class="scenario-box">
-                    <div class="box-bg"></div>
+                    <div class="box-bg">
+                        <img src="{{ url_for('static', filename='images/'+src+'.png') }}">
+                    </div>
                     <div class="box-text">{{ scenario }}</div>
                 </div>
                 {% endfor %}
@@ -89,8 +99,8 @@
 <div id="survey-compare" class="row">
     <section class="col-lg-12">
         <div class="container">
-            <div class="col-lg-12">
-                <h1>我是...</h1>
+            <div class="col-lg-12 header">
+                <h1>我是</h1>
                 <h3></h3>
             </div>
             <div id="gender-block" class="col-lg-12">
@@ -121,6 +131,11 @@
                 <span>> 60</span>
             </div>            
         </div>
+    </section>
+</div>
+<div id="survey-complete" class="row">
+    <section class="col-lg-12">
+        submit
     </section>
 </div>
 

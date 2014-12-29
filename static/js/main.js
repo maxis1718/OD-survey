@@ -16,4 +16,13 @@ function events(){
         $(this).find('.box-footer').find('.arrow-up').toggleClass('invisible');
         // $(this).toggleClass('highlight');
     });
+
+    // $('.like-btn-wrap').find('.like-btn').hover(function(e){
+    //     $(this).toggleClass('hidden');
+    // });
+
+    $('.toggle').hover(function(e){
+        $(this).toggleClass('hidden');
+        // $(this).parent().find('.toggle').toggleClass('hidden');
+    });
 }
