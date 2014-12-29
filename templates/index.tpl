@@ -53,7 +53,7 @@
     </section>
 </div>
 
-<div id="survey-compare" class="row">
+<div id="survey-good-place" class="row">
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12 header">
@@ -66,7 +66,7 @@
                     <div class="box-bg">
                         <img src="{{ url_for('static', filename='images/'+src+'.png') }}">
                     </div>
-                    <div class="box-text">{{ scenario }}</div>
+                    <div class="box-text" scenario="{{ src }}">{{ scenario }}</div>
                 </div>
                 {% endfor %}
             </div>
@@ -74,7 +74,7 @@
     </section>
 </div>
 
-<div id="survey-compare" class="row">
+<div id="survey-bad-place" class="row">
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12 header">
@@ -83,7 +83,7 @@
             </div>
             <div class="col-lg-12">
                 {% for scenario, src in scenarios %}
-                <div class="scenario-box">
+                <div class="scenario-box" scenario="{{ src }}">
                     <div class="box-bg">
                         <img src="{{ url_for('static', filename='images/'+src+'.png') }}">
                     </div>
@@ -96,7 +96,7 @@
 </div>
 
 
-<div id="survey-compare" class="row">
+<div id="survey-gender" class="row">
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12 header">
@@ -133,7 +133,7 @@
         </div>
     </section>
 </div>
-<div id="survey-complete" class="row">
+<div id="survey-submit" class="row">
     <section class="col-lg-12">
         submit
     </section>
