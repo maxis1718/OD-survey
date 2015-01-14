@@ -13,39 +13,44 @@
 {% endblock %}
 
 {% block main %}
+<img class="hidden" src="{{ url_for('static', filename='img/like-button-blue.png') }}" />
+<img class="hidden" src="{{ url_for('static', filename='img/like-button-gray.png') }}" />
 
-<div id="survey-compare" class="row">
+<header class="header header-main z-5 w-100p" role="banner">
+
+    <nav class="navbar navbar-default b-0 br-0 mb-0 bg-n bs-n mh-64" role="navigation">
+        <section class="col-lg-12">
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="navbar-brand"></div>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </nat>    
+</header>
+
+
+<div id="survey-demo" class="row">
     <section class="col-lg-12">
         <div class="container">
-            <div class="col-lg-12 header">
-                <h1>you like...?</h1>
-                <h3>blah blah</h3>
-                <img class="hidden" src="{{ url_for('static', filename='img/like-button-blue.png') }}" />
-                <img class="hidden" src="{{ url_for('static', filename='img/like-button-gray.png') }}" />                
-            </div>
             <div class="col-lg-12">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div id="compare-left" class="compare-block">
-                        <div class="img-container">
-                            <img src="{{ url_for('static', filename='img/5s_display_large_2x.png') }}" />
-                            <div class="content">
-                                <a href="https://www.fluidui.com/editor/live/preview/p_mhTesNKF2lLgFbCHX1xUEeccb0aQg8BD.1419868694068" target="_blank">
-                                    <img src="{{ url_for('static', filename='img/odapp.png') }}">
-                                </a>
-                            </div>
-                            <div class="like-btn"></div>
-                        </div>
-                        <!-- <div class="like-container">like</div> -->
-                    </div>
+                <div class="col-lg-5 mt-72">
+                    <h1 class="fs-64 fw-600 mb-14">{{ sections['demo']['heading']['text'] }}</h1>
+                    <p class="fs-24 mb-14">{{ sections['demo']['heading']['subTxt'] }}</p>                    
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div id="compare-right" class="compare-block">
-                        <div class="img-container">
-                            <img src="{{ url_for('static', filename='img/5s_display_large_2x.png') }}" />
-                            <div class="content">iframe</div>
-                            <div class="like-btn"></div>                          
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <div id="compare-left" class="compare-block">
+                        <div class="img-container p-r m-0a">
+                            <img class="p-r" src="{{ url_for('static', filename='img/bg-iphone-gold.png') }}" />
+                            <div class="content p-a bg-w z-1"><span style="color: #ccc;">demo images</span></div>
+                            <!-- <div class="like-btn"></div> -->
                         </div>
-                        <!-- <div class="like-container">like</div> -->
                     </div>
                 </div>
             </div>

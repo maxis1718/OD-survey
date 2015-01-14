@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/shared.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/atomic.css') }}">
 
     {% block extra_css %}
     {% endblock %}
@@ -47,7 +48,7 @@
 
 <!-- main block -->
 <!-- <div class="container main-block-wrap"> -->
-<div class="container">
+<div class="wrap">
     {% block main %}
     {% endblock %}
 </div>
