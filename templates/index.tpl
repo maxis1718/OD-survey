@@ -16,13 +16,15 @@
 <img class="hidden" src="{{ url_for('static', filename='img/like-button-blue.png') }}" />
 <img class="hidden" src="{{ url_for('static', filename='img/like-button-gray.png') }}" />
 
-<header class="header header-main z-5 w-100p" role="banner">
+<header class="header header-main z-5 w-100p hidden" role="banner">
 
     <nav class="navbar navbar-default b-0 br-0 mb-0 bg-n bs-n mh-64" role="navigation">
         <section class="col-lg-12">
             <div class="container">
                 <div class="navbar-header">
-                    <div class="navbar-brand"></div>
+                    <div class="navbar-brand">
+                        <img src="{{ url_for('static', filename='img/favicon.png') }}" class="h-100p">
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -36,21 +38,25 @@
 </header>
 
 
-<div id="survey-demo" class="row">
+<div id="survey-demo" class="row pt-48">
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12">
-                <div class="col-lg-5 mt-72">
-                    <h1 class="fs-64 fw-600 mb-14">{{ sections['demo']['heading']['text'] }}</h1>
-                    <p class="fs-24 mb-14">{{ sections['demo']['heading']['subTxt'] }}</p>                    
+                <div class="col-lg-5 col-md-12 col-sm-12 mt-72">
+                    <h1 class="fs-64 fw-600 mb-14 pl-18">{{ sections['demo-heading'][0]['text'] }}</h1>
+                    <p class="fs-24 mb-14 pl-24">{{ sections['demo-heading'][0]['subTxt'] }}</p>
+                    <ul class="badge-container w-100p pt-24 pb-18 ta-c">
+                        <li class="d-ib pr-24">
+                            <img src="{{ url_for('static', filename='img/app-store-badge.svg') }}" id="apple-badge">
+                        </li>
+                        <li class="d-ib pr-24">
+                            <img src="{{ url_for('static', filename='img/google-play.png') }}" id="google-badge">
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-lg-7 col-md-12 col-sm-12">
-                    <div id="compare-left" class="compare-block">
-                        <div class="img-container p-r m-0a">
-                            <img class="p-r" src="{{ url_for('static', filename='img/bg-iphone-gold.png') }}" />
-                            <div class="content p-a bg-w z-1"><span style="color: #ccc;">demo images</span></div>
-                            <!-- <div class="like-btn"></div> -->
-                        </div>
+                    <div id="demo-img-wrap" class="m-0a ov-h">
+                        <img src="{{ url_for('static', filename='img/odapp.png') }}" class="">
                     </div>
                 </div>
             </div>
