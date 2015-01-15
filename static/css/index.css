@@ -47,125 +47,63 @@ body div.container
     }
 
 
-.compare-block
-{
-  /*width: 100%;*/
-  /*width: */
-  /*width: 360px;*/
-  width: 100%;
-  /*height: 720px;*/
+#apple-badge, #google-badge {
+  height: 48px;
 }
-#compare-left
-{
-  /*background: orange;*/
-}
-#compare-right
-{
-  /*background: blue;  */
-}
-  .compare-block .img-container
-  {
-    width: 386px;
-    height: auto;
-    /*background: purple;*/
-    /*margin: 24px auto;*/
-    /*position: relative;*/
-  }
-    .compare-block .img-container img, .compare-block .img-container div.content {
 
-      /*position: relative;*/
-    }
-      .compare-block .img-container .like-btn {
-        position: absolute;
-        left: 165px;
-        bottom: 29px;
-        width: 58px;
-        height: 58px;
-        z-index: 3;
-        cursor: pointer;
-        background: url('../img/like-button-gray.png');
-        background-size: 58px 58px;      
-      }
-      .compare-block .img-container .like-btn:hover {
-        /*background: blue;*/
-        background-image: url('../img/like-button-blue.png');
-      }
-      .compare-block .img-container .like-btn:active {
-        background-image: url('../img/like-button-gray.png');
-      }   
-    .compare-block .img-container img {
-      z-index: 1;
-      width: 386px;
-    }
-    .compare-block .img-container div.content {
-      top: 114.5px;
-      left: 26px;
-      width: 337px;
-      height: 448px;
-    }
-    .compare-block .img-container div.content img {
-      width: 100%;
-    }
-  .compare-block .like-container
-  {
-    width: 100%;
-    height: 48px;
-    line-height: 48px;
-    text-align: center;
-    background: #aaa;
-    margin-top: 24px;
-  }
+#demo-img-wrap {
+  width: 320px;
+  height: 466px;
+  background-image: url('/static/img/bg-iphone-gold.png');
+  background-repeat: no-repeat;
+  background-size: cover;  
+}
+#demo-img-wrap img {
+  margin-top: 95px;
+  margin-left: 22px;
+  width: 280px; 
+}
+#survey-good-place {
+  background: #333;
+}
 
 .scenario-box
 {
-  /*float: left;*/
-  display: inline-block;
   width: 180px;
   height: 180px;
-  background: #9bcb01;
-  /*background: black;*/
   margin-left: 36px;
   margin-bottom: 36px;
-  position: relative;
 }
-  .scenario-box .box-bg
-  {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 0;
-  }
-    .scenario-box .box-bg img {
-      width: 100%;
-      height: 100%;
-      /*opacity: 0.8;*/
-    }
   .scenario-box .box-text
   {
     width: 100%;
-    height: 54px;
-    line-height: 54px;
-    top: 63px;
+    height: 40%;
+    line-height: 72px;
+    top: 30%;
     font-size: 24px;
     color: white;
-    position: absolute;
     z-index: 1;
     text-align: center;
     cursor: pointer;
+    /*position: absolute;*/
+    background-color: rgba(0, 0, 0, 0.5);
   }
-  .scenario-box .box-text::before
+  .scenario-box .box-text:hover
+  {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+/*  .scenario-box .box-text::before
   {
     background: black;
-    /*opacity: 0.3;*/
     content: "";
-    opacity: 0.7;
+    opacity: 0.6;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     position: absolute;
     z-index: -1;  
-  }
+  }*/
 
 #gender-block .info-box
 {
