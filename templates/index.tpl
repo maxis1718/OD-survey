@@ -64,47 +64,30 @@
     </section>
 </div>
 
-<div id="survey-good-place" class="row">
+<div id="survey-good-place" class="row pt-48">
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12 header">
-                <h1>哪些地方</h1>
-                <h3>想用 app 點菜?</h3>
-            </div>
-            <div class="col-lg-12">
-                {% for scenario, src in scenarios %}
-                <div class="scenario-box">
-                    <div class="box-bg">
-                        <img src="{{ url_for('static', filename='images/'+src+'.png') }}">
-                    </div>
-                    <div class="box-text" scenario="{{ src }}">{{ scenario }}</div>
+                <div class="col-lg-4 col-md-12 col-sm-12 mt-72 fc-w">
+                    <h1 class="fs-64 fw-600 mb-14">{{ sections['scenario-like'][0]['text'] }}</h1>
+                    <p class="fs-24 mb-14">{{ sections['scenario-like'][0]['subTxt'] }}</p>
                 </div>
-                {% endfor %}
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                    {% for scenario, src in scenarios %}
+                    <div class="scenario-box d-ib p-r">
+                        <div class="box-bg w-100p h-100p">
+                            <img src="{{ url_for('static', filename='images/'+src+'.png') }}" class="w-100p h-100p">
+                        </div>
+                        <div class="box-text p-a" scenario="{{ src }}">{{ scenario }}</div>
+                    </div>
+                    {% endfor %}                    
+                </div>
             </div>
-        </div>
-    </section>
-</div>
 
-<div id="survey-bad-place" class="row">
-    <section class="col-lg-12">
-        <div class="container">
-            <div class="col-lg-12 header">
-                <h1>哪些地方</h1>
-                <h3><strong>不</strong> 想用 app 點菜?</h3>
-            </div>
-            <div class="col-lg-12">
-                {% for scenario, src in scenarios %}
-                <div class="scenario-box" scenario="{{ src }}">
-                    <div class="box-bg">
-                        <img src="{{ url_for('static', filename='images/'+src+'.png') }}">
-                    </div>
-                    <div class="box-text">{{ scenario }}</div>
-                </div>
-                {% endfor %}
-            </div>
         </div>
     </section>
-</div>
+</div>    
+
 
 
 <div id="survey-gender" class="row">
