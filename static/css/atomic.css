@@ -13,6 +13,10 @@
 .fw-200 {font-weight: 200;}
 .fw-600 {font-weight: 600;}
 
+.fc-w {color: white;}
+
+.ta-c {text-align: center;}
+
 .lh-xs {line-height: 0.5em;}
 .lh-sm {line-height: 0.8em;}
 .lh-md {line-height: 1em;}
@@ -36,15 +40,42 @@
 .mt-2d5em {margin-top: 2.5em;}
 .mt-3em {margin-top: 3em;}
 .mt-3d5em {margin-top: 3.5em;}
-
 .m-0a {margin: 0 auto;}
+
+/* padding */
+.pt-18 {padding-top: 18px;}
+.pt-24 {padding-top: 24px;}
+.pt-36 {padding-top: 36px;}
+.pt-48 {padding-top: 48px;}
+
+.pr-18 {padding-right: 18px;}
+.pr-24 {padding-right: 24px;}
+.pr-36 {padding-right: 36px;}
+.pr-48 {padding-right: 48px;}
+
+.pb-18 {padding-bottom: 18px;}
+.pb-24 {padding-bottom: 24px;}
+.pb-36 {padding-bottom: 36px;}
+.pb-48 {padding-bottom: 48px;}
+
+.pl-18 {padding-left: 18px;}
+.pl-24 {padding-left: 24px;}
+.pl-36 {padding-left: 36px;}
+.pl-48 {padding-left: 48px;}
+
 
 .mh-24 {min-height: 24px;}
 .mh-32 {min-height: 32px;}
 .mh-48 {min-height: 48px;}
 .mh-64 {min-height: 64px;}
 
+/* width */
 .w-100p {width: 100%;}
+.w-386 {width: 386px;}
+
+/* height */
+.h-auto {height: auto;}
+.h-100p {height: 100%;}
 
 .d-ib {display: inline-block;}
 .d-i {display: inline;}
@@ -65,6 +96,10 @@
 .va-top {vertical-align: top;}
 .va-middle {vertical-align: middle;}
 .va-bottom {vertical-align: bottom;}
+
+/* overflow */
+.ov-h {overflow: hidden;}
+.ov-v {overflow: visible;}
 
 .z-0 {z-index: 0;}
 .z-1 {z-index: 1;}
