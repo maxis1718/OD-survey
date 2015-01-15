@@ -13,39 +13,50 @@
 {% endblock %}
 
 {% block main %}
+<img class="hidden" src="{{ url_for('static', filename='img/like-button-blue.png') }}" />
+<img class="hidden" src="{{ url_for('static', filename='img/like-button-gray.png') }}" />
 
-<div id="survey-compare" class="row">
-    <section class="col-lg-12">
-        <div class="container">
-            <div class="col-lg-12 header">
-                <h1>you like...?</h1>
-                <h3>blah blah</h3>
-                <img class="hidden" src="{{ url_for('static', filename='img/like-button-blue.png') }}" />
-                <img class="hidden" src="{{ url_for('static', filename='img/like-button-gray.png') }}" />                
-            </div>
-            <div class="col-lg-12">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div id="compare-left" class="compare-block">
-                        <div class="img-container">
-                            <img src="{{ url_for('static', filename='img/5s_display_large_2x.png') }}" />
-                            <div class="content">
-                                <a href="https://www.fluidui.com/editor/live/preview/p_mhTesNKF2lLgFbCHX1xUEeccb0aQg8BD.1419868694068" target="_blank">
-                                    <img src="{{ url_for('static', filename='img/odapp.png') }}">
-                                </a>
-                            </div>
-                            <div class="like-btn"></div>
-                        </div>
-                        <!-- <div class="like-container">like</div> -->
+<header class="header header-main z-5 w-100p hidden" role="banner">
+
+    <nav class="navbar navbar-default b-0 br-0 mb-0 bg-n bs-n mh-64" role="navigation">
+        <section class="col-lg-12">
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <img src="{{ url_for('static', filename='img/favicon.png') }}" class="h-100p">
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div id="compare-right" class="compare-block">
-                        <div class="img-container">
-                            <img src="{{ url_for('static', filename='img/5s_display_large_2x.png') }}" />
-                            <div class="content">iframe</div>
-                            <div class="like-btn"></div>                          
-                        </div>
-                        <!-- <div class="like-container">like</div> -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </nat>    
+</header>
+
+
+<div id="survey-demo" class="row pt-48">
+    <section class="col-lg-12">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="col-lg-5 col-md-12 col-sm-12 mt-72">
+                    <h1 class="fs-64 fw-600 mb-14 pl-18">{{ sections['demo-heading'][0]['text'] }}</h1>
+                    <p class="fs-24 mb-14 pl-24">{{ sections['demo-heading'][0]['subTxt'] }}</p>
+                    <ul class="badge-container w-100p pt-24 pb-18 ta-c">
+                        <li class="d-ib pr-24">
+                            <img src="{{ url_for('static', filename='img/app-store-badge.svg') }}" id="apple-badge">
+                        </li>
+                        <li class="d-ib pr-24">
+                            <img src="{{ url_for('static', filename='img/google-play.png') }}" id="google-badge">
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <div id="demo-img-wrap" class="m-0a ov-h">
+                        <img src="{{ url_for('static', filename='img/odapp.png') }}" class="">
                     </div>
                 </div>
             </div>
