@@ -17,7 +17,6 @@
 <img class="hidden" src="{{ url_for('static', filename='img/like-button-gray.png') }}" />
 
 <header class="header header-main z-5 w-100p hidden" role="banner">
-
     <nav class="navbar navbar-default b-0 br-0 mb-0 bg-n bs-n mh-64" role="navigation">
         <section class="col-lg-12">
             <div class="container">
@@ -38,11 +37,11 @@
 </header>
 
 
-<div id="survey-demo" class="row pt-48">
+<div id="survey-demo" class="row pt-108">
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12">
-                <div class="col-lg-5 col-md-12 col-sm-12 mt-72">
+                <div class="col-lg-5 col-md-12 col-sm-12 mt-72 pb-36">
                     <h1 class="fs-64 fw-600 mb-14 pl-18">{{ sections['demo-heading'][0]['text'] }}</h1>
                     <p class="fs-24 mb-14 pl-24">{{ sections['demo-heading'][0]['subTxt'] }}</p>
                     <ul class="badge-container w-100p pt-24 pb-18 ta-c">
@@ -64,7 +63,7 @@
     </section>
 </div>
 
-<div id="survey-good-place" class="row pt-48">
+<div id="survey-good-place" class="row pt-64">
     <section class="col-lg-12">
         <div class="container">
             <div class="col-lg-12 header">
