@@ -16,7 +16,7 @@ sections = {
     'scenario-like': [
         {
             'text': u'無論是在',
-            'subTxt': u'文青的咖啡廳 還是 熱鬧的快炒',
+            'subTxt': u'文青的咖啡廳 還是 熱鬧的快炒店',
         },
     ]    
 }
