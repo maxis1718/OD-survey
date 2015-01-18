@@ -29,6 +29,10 @@ body div.container
   margin: 0 auto;
   /*padding-bottom: 48px;*/
 }
+.section {
+  border-bottom: 1px solid #aaa;
+}
+
 .container .header
 {
   padding-top: 24px;
@@ -43,7 +47,7 @@ body div.container
     {
       width: 100%;
       height: 100%;
-      border-bottom: 1px solid #aaa;
+      
     }
 
 
@@ -64,7 +68,7 @@ body div.container
   width: 280px; 
 }
 #survey-good-place {
-  background: #333;
+  /*background: #333;*/
 }
 
 .scenario-box
@@ -74,36 +78,35 @@ body div.container
   margin-left: 36px;
   margin-bottom: 36px;
 }
+.scenario-add {
+  border: 5px dashed #ccc;
+}
   .scenario-box .box-text
   {
     width: 100%;
     height: 40%;
-    line-height: 72px;
+    /*line-height: 72px;*/
     top: 30%;
-    font-size: 24px;
-    color: white;
-    z-index: 1;
+    /*font-size: 24px;*/
+    /*color: white;*/
+    /*z-index: 1;*/
     text-align: center;
     cursor: pointer;
-    /*position: absolute;*/
-    background-color: rgba(0, 0, 0, 0.5);
   }
-  .scenario-box .box-text:hover
+  .scenario-more-input 
   {
-    background-color: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    /*height: 40px;*/
+    border: 0;
+    outline: none;
+    background: none;
+    text-align: center;
+    /*border-bottom: 3px solid */
+
   }
-/*  .scenario-box .box-text::before
-  {
-    background: black;
-    content: "";
-    opacity: 0.6;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;  
-  }*/
+  .scenario-box.scenario-add .box-text{
+
+  }
 
 #gender-block .info-box
 {
@@ -138,7 +141,77 @@ body div.container
       margin: 12px auto 0 auto;
     }
 
+iframe {
+    width: 316px;
+    height: 661px;
+    overflow: hidden;
+    /*pointer-events:none;*/
+    /*margin-top:-100px;*/
+    /*margin-left:-100px*/
+}
 
+.opinion-tag {
+/*background: yellowgreen;*/
+  border-radius: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-right: 0.5em;
+  font-size: 22px;
+  opacity: 0.5;
+  outline: none!important;
+}
+.opinion-text {
+/*border-right: 2px dashed #ddd;*/
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.opinion-toggle {
+  padding-right: 4px;
+  padding-left: 2px;
+  width: 24px;
+/*text-align: center;*/
+}
+
+/*.btn-disabled {
+  opacity: 0.5;
+}*/
+.highlight {
+  opacity: 0.85;
+}
+.chosen {
+  opacity: 1.0;
+}
+
+.opinion-more-container {
+
+}
+
+.opinion-more-container .opinion-more-text, .opinion-more-container .opinion-more-input {
+
+}
+
+.opinion-more-container .opinion-more-text {
+
+}
+
+.opinion-more-container .opinion-more-input {
+  border: 0;
+  outline: none;
+  border-bottom: 2px dashed #bbb;
+
+  font-family: sans-serif;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: 12px;
+  font-size: 24px;
+  text-align: center;
+  width: 196px;
+
+}
+
+.default-restaurant {
+  background: url('../img/restaurant.icon.png');
+}
 /*#gender-block .male { background: red; }*/
 /*#gender-block .female { background: blue; }*/
 
