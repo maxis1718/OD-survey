@@ -13,8 +13,13 @@
 {% endblock %}
 
 {% block main %}
-<img class="hidden" src="{{ url_for('static', filename='img/like-button-blue.png') }}" />
-<img class="hidden" src="{{ url_for('static', filename='img/like-button-gray.png') }}" />
+<!-- cache -->
+<img src="{{ url_for('static', filename='img/restaurant.icon.png') }}" class="hidden" />
+<img src="{{ url_for('static', filename='img/demo/menu.png') }}" class="hidden" />
+<img src="{{ url_for('static', filename='img/demo/qrcode.png') }}" class="hidden" />
+<img src="{{ url_for('static', filename='img/demo/history.png') }}" class="hidden" />
+<img src="{{ url_for('static', filename='img/demo/done.png') }}" class="hidden" />
+
 
 <header class="header header-main z-5 w-100p hidden" role="banner">
     <nav class="navbar navbar-default b-0 br-0 mb-0 bg-n bs-n mh-64" role="navigation">
@@ -23,6 +28,7 @@
                 <div class="navbar-header">
                     <div class="navbar-brand">
                         <img src="{{ url_for('static', filename='img/favicon.png') }}" class="h-100p">
+                        
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
