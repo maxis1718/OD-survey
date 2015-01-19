@@ -64,7 +64,7 @@ function events(){
 
             var text = $.trim($(this).val());
             if(text.length == 0){ return false; }
-            var btn = $('<button/>').addClass('opinion-tag opinion-other d-ib btn btn-info mb-36 chosen').appendTo($('.opinions-container'));
+            var btn = $('<button/>').addClass('opinion-tag opinion-other d-ib btn btn-info mb-36 chosen').attr('score','').attr('opid','').attr('cht',text).appendTo($('.opinions-container'));
             $('<div></div>').addClass('opinion-text d-ib').attr('val', 'other').text(text).appendTo(btn);
             $('<div></div>').addClass('opinion-add opinion-toggle d-ib hidden').attr('val', 'other').text('+').appendTo(btn);            
             $('<div></div>').addClass('opinion-minus opinion-toggle d-ib').attr('val', 'other').text('+').appendTo(btn);            
@@ -128,7 +128,15 @@ function events(){
 
 function submit(){
 
-    var opinions = $.map( $('.opinions-container').find('button.chosen'), function(obj, i){  return {'score': $(obj).attr('score'), 'opid': $(obj).attr('opid')}; });
+    var opinions = $.map( $('.opinions-container').find('button.chosen'), function(obj, i){  
+        var score = $.trim($(obj).attr('score'));
+        var opid = $.trim($(obj).attr('opid'));
+        var cht = $.trim($(obj).attr('cht'));
+        score = (typeof score !== typeof undefined && score !== false && score.length > 0) ? parseInt(score) : null;
+        opid = (typeof opid !== typeof undefined && opid !== false && opid.length > 0) ? opid : null;
+        cht = (typeof cht !== typeof undefined && cht !== false && cht.length > 0) ? cht : null;
+        return {'score': score, 'opid': opid, 'cht': cht}; 
+    });
     var scenarios = $.map( $('.box-badge'), function(obj, i){
         if(!$(obj).hasClass('hidden')) {
             return $(obj).siblings('.box-text').attr('scenario');
