@@ -33,8 +33,19 @@ def send():
     if request.method == 'GET':
         pass
     else:
-        # ip, date, stay, place, opinion
-        print request.form['username']
+        ## check madatory fields
+        ip = request.remote_addr
+
+        ## insert data
+        # ip
+        # tag: survey
+        # date, stay, place, opinion
+        # print request.form['date']
+        print 'remote ip is', ip
+        data = {'status': 'ok', 'myip': ip}
+        resp = jsonify(data)
+        resp.status_code = 200
+        return resp
 
 
 if __name__ == "__main__":
