@@ -2,6 +2,8 @@
 
 from flask import Flask, render_template, url_for, make_response, Response, jsonify, request
 import settings
+import json
+import datetime
 import pymongo
 
 app = Flask(__name__)
@@ -33,17 +35,16 @@ def send():
     if request.method == 'GET':
         pass
     else:
-        ## check madatory fields
-        ip = request.remote_addr
-
         ## insert data
         # ip
         # tag: survey
         # date, stay, place, opinion
-        # print request.form['date']
-        print 'remote ip is', ip
-        data = {'status': 'ok', 'myip': ip}
-        resp = jsonify(data)
+        data = json.loads(request.data)
+        data['ip'] = request.remote_addr
+        data['time'] = datetime.datetime(data['time']['year'], data['time']['month'], data['time']['date'], data['time']['hour'], data['time']['minute'])
+        print data
+        
+        resp = jsonify({'status': 'ok'})
         resp.status_code = 200
         return resp
 
