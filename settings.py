@@ -105,10 +105,10 @@ form = {
 }
 
 opinions = [
-    { 'cht': u'不錯', 'color': '', 'bg': '', 'btn': 'success' },
-    { 'cht': u'讚啦', 'color': '', 'bg': '', 'btn': 'success' },
-    { 'cht': u'普通', 'color': '', 'bg': '', 'btn': 'primary' },
-    { 'cht': u'沒啥用', 'color': '', 'bg': '', 'btn': 'warning' },
-    { 'cht': u'很麻煩', 'color': '', 'bg': '', 'btn': 'warning' },
-    { 'cht': u'糟透了', 'color': '', 'bg': '', 'btn': 'danger' },
+    { 'id': 'notbad',       'cht': u'不錯',   'btn': 'success',  'score': 3, },
+    { 'id': 'awesome',      'cht': u'讚啦',   'btn': 'success',  'score': 5, },
+    { 'id': 'soso',         'cht': u'普通',   'btn': 'primary',  'score': 1,},
+    { 'id': 'useless',      'cht': u'沒啥用', 'btn': 'warning',  'score': 0,},
+    { 'id': 'inconvenient', 'cht': u'很麻煩', 'btn': 'warning',  'score': -1,},
+    { 'id': 'sucks',        'cht': u'糟透了', 'btn': 'danger',   'score': -2,},
 ]
