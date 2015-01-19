@@ -107,7 +107,7 @@
                     {% if 'form-opinions' in section and settings.opinions %}
                     <div class="opinions-container d-ib mb-48 mt-96">
                         {% for opinion in settings.opinions %}
-                        <button class="opinion-tag d-ib btn btn-{{ opinion['btn'] }} mb-36" score="{{ opinion['score'] }}" opid="{{ opinion['id'] }}">
+                        <button class="opinion-tag d-ib btn btn-{{ opinion['btn'] }} mb-36" score="{{ opinion['score'] }}" opid="{{ opinion['id'] }}" cht="{{ opinion['cht'] }}">
                             <div class="opinion-text d-ib">{{ opinion['cht'] }}</div><div class="opinion-add opinion-toggle d-ib">+</div><div class="opinion-minus opinion-toggle d-ib hidden">-</div>
                         </button>
                         {% endfor %}
