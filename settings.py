@@ -7,19 +7,19 @@ GOOGLE_BADGE = 'google-play.png'
 
 sections = {
     'demo-heading': [
+        # {
+        #     'text': u'如果,',
+        #     'subTxt': u'點菜可以這樣:',
+        #     'phone': True,
+        #     'scenario': False,
+        #     'textClass': 'fc-black',
+        #     'subTxtClass': 'fc-black',                  
+        #     'cssClass': 'pt-160 b-w',
+        #     'image': {'demo': 'demo/qrcode.png' }
+        # },
         {
             'text': u'如果,',
             'subTxt': u'點菜可以這樣:',
-            'phone': True,
-            'scenario': False,
-            'textClass': 'fc-black',
-            'subTxtClass': 'fc-black',                  
-            'cssClass': 'pt-160 b-w',
-            'image': {'demo': 'demo/qrcode.png' }
-        },
-        {
-            'text': u'QR一下,',
-            'subTxt': u'菜單就在手上。',
             'phone': True,
             'scenario': False,
             'textClass': 'fc-black',
@@ -28,8 +28,8 @@ sections = {
             'image': {'demo': 'demo/menu.png' }
         },
         {
-            'text': u'點過的,',
-            'subTxt': u'歐低都幫您記得!',
+            'text': u'看看點了什麼',
+            'subTxt': u'',
             'triTxt': u'',
             'phone': True,
             'scenario': False,
@@ -50,9 +50,9 @@ sections = {
             'cssClass': 'bg-theme-a-grey',
         },
         {
-            'text': u'點菜，可以如此簡單！',
+            'text': u'就是如此簡單！',
             'textClass': 'fc-black',
-            'badges': True,
+            'badges': False,
             'phone': True,
             'scenario': False,
             'cssClass': 'pt-192',
