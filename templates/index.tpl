@@ -93,6 +93,7 @@
                             <img src="{{ url_for('static', filename='images/'+src+'.png') }}" class="w-100p h-100p">
                         </div>
                         <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1" scenario="{{ src }}">{{ scenario }}</div>
+                        <div class="box-badge p-a fc-white bg-theme-a-green" style="">v</div>
                     </div>
                     {% endfor %}
                     <div class="scenario-box scenario-add f-l p-r">
@@ -106,8 +107,8 @@
                     {% if 'form-opinions' in section and settings.opinions %}
                     <div class="opinions-container d-ib mb-48 mt-96">
                         {% for opinion in settings.opinions %}
-                        <button class="opinion-tag d-ib btn btn-{{ opinion['btn'] }} mb-36">
-                            <div class="opinion-text d-ib" val="{{ opinion_key }}" >{{ opinion['cht'] }}</div><div class="opinion-add opinion-toggle d-ib">+</div><div class="opinion-minus opinion-toggle d-ib hidden">-</div>
+                        <button class="opinion-tag d-ib btn btn-{{ opinion['btn'] }} mb-36" score="{{ opinion['score'] }}" opid="{{ opinion['id'] }}">
+                            <div class="opinion-text d-ib">{{ opinion['cht'] }}</div><div class="opinion-add opinion-toggle d-ib">+</div><div class="opinion-minus opinion-toggle d-ib hidden">-</div>
                         </button>
                         {% endfor %}
                     </div>
