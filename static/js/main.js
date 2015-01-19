@@ -8,6 +8,11 @@ $(document).ready(function(){
     events();
 });
 
+function rightNow() {
+    var d = new Date();
+    return { 'minute':d.getMinutes(), 'hour':d.getHours(), 'date':d.getDate(), 'month': d.getMonth()+1, 'year':d.getFullYear()  };
+}
+
 function glb_events(){
     $(document).on('click', '.opinion-other', function(e){ 
         if( $(this).hasClass('chosen') ){ 
@@ -48,11 +53,9 @@ function events(){
         .click(function(e){ 
             if( $(this).hasClass('chosen') ){ 
                 $(this).removeClass('chosen');
-                // $(this).find('.opinion-toggle').toggleClass('hidden');
             }
             else { 
                 $(this).addClass('chosen'); 
-                // $(this).find('.opinion-toggle').toggleClass('hidden');
             }
         });
 
@@ -93,11 +96,8 @@ function events(){
             scenarioInputWrap.addClass('hidden');
             scenarioPlus.removeClass('hidden');
         }
-        // $(this).addClass('hidden');
-        // $(this).siblings('.scenario-more-input-wrap').removeClass('hidden').find('input').focus();
     })
 
-    // $('.scenario-more-input').parents('.scenario-box')
 
     $('.scenario-more-input').keyup(function(e){
         if(e.which == 13 || e.keyCode == 13){
@@ -121,9 +121,32 @@ function events(){
             // clear 
         }
     });
-    // $('#opinion-scenario').find('.scenario-box').click('')
-// <button class="opinion-tag d-ib btn btn-{{ opinion['btn'] }} mb-36">
-//     <div class="opinion-text d-ib" val="{{ opinion_key }}" >{{ opinion['cht'] }}</div><div class="opinion-add d-ib">+</div>
-// </button>
 
 }
+
+
+
+function submit(){
+
+    var opinions = $.map( $('.opinions-container').find('button.chosen'), function(obj, i){  return {'score': $(obj).attr('score'), 'opid': $(obj).attr('opid')}; });
+    var scenarios = $.map( $('.box-badge'), function(obj, i){
+        if(!$(obj).hasClass('hidden')) {
+            return $(obj).siblings('.box-text').attr('scenario');
+        }
+    });
+    var data = { 'opinions': opinions, 'scenarios': scenarios, 'time': rightNow() };
+    $.ajax({
+        url: '/send',
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        success: function(resp) {
+            console.log(resp);
+        }
+    });
+    
+    // $.post("/send" , data, function(resp){});
+}
+
