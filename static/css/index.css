@@ -168,7 +168,7 @@ iframe {
   padding-bottom: 3px;
   margin-right: 0.5em;
   font-size: 22px;
-  opacity: 0.5;
+  opacity: 0.35;
   outline: none!important;
 }
 .opinion-text {
@@ -223,6 +223,14 @@ iframe {
 .default-restaurant {
   background: url('../img/restaurant.icon.png');
 }
-/*#gender-block .male { background: red; }*/
-/*#gender-block .female { background: blue; }*/
+.dropdown-menu > li > a {
+  outline: none;
+}
 
+.comments-container textarea {
+  resize: vertical;
+}
+.comments-container button:focus,
+.thanks-container button:focus {
+  outline: none;
+}

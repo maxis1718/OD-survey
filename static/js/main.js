@@ -122,6 +122,8 @@ function events(){
         }
     });
 
+    bindCommentEvents();
+
 }
 
 
@@ -158,3 +160,26 @@ function submit(){
     // $.post("/send" , data, function(resp){});
 }
 
+
+function bindCommentEvents() {
+    var dd = $('#age-dropdown');
+    var firstdd = true;
+    dd.find('.age-opt').click(function(e){
+        dd.find('.btn-text').text( $(this).text() );
+        if(firstdd == true)
+        {
+            dd.siblings('.txt-toggle').toggleClass('hidden');
+            firstdd = false;
+        }
+    });
+    var gd = $('#gender-dropdown');
+    var firstgd = true;
+    gd.find('.gender-opt').click(function(e){
+        gd.find('.btn-text').html( $(this).html() );
+        if(firstgd == true)
+        {
+            gd.siblings('.txt-toggle').toggleClass('hidden');
+            firstgd = false;
+        }
+    });    
+}

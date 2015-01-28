@@ -12,9 +12,9 @@
 
     <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/shared.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/atomic.css') }}">
 
@@ -41,13 +41,7 @@
 </head>
 
 <body>
-<!-- <div id="navbar-top" class="navbar navbar-fixed-top" role="navigation">
-    <div class="navbar-header">{{ title }}</div>
-</div> -->
 
-
-<!-- main block -->
-<!-- <div class="container main-block-wrap"> -->
 <div class="wrap">
     {% block main %}
     {% endblock %}
