@@ -239,3 +239,6 @@ iframe {
   top: 78px;
   right: 20px;  
 }
+.button-groups button {
+  width: 108px;
+}
