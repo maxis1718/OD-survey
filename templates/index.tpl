@@ -94,8 +94,10 @@
                         <div class="box-bg w-100p h-100p">
                             <img src="{{ url_for('static', filename='images/'+src+'.png') }}" class="w-100p h-100p">
                         </div>
-                        <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1" scenario="{{ src }}">{{ scenario }}</div>
-                        <div class="box-badge p-a fc-white bg-theme-a-green" style="">v</div>
+                        <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1" scenario="{{ src }}">
+                            <span>{{ scenario }}</span>
+                        </div>
+                        <i class="fa fa-check-circle p-a z-3 fc-white fs-24 hidden"></i>
                     </div>
                     {% endfor %}
                     <div class="scenario-box scenario-add f-l p-r">
@@ -109,7 +111,7 @@
                     {% if 'form-opinions' in section and settings.opinions %}
                     <div class="opinions-container d-ib mb-48 mt-96">
                         {% for opinion in settings.opinions %}
-                        <button class="opinion-tag d-ib btn btn-{{ opinion['btn'] }} mb-36" score="{{ opinion['score'] }}" opid="{{ opinion['id'] }}" cht="{{ opinion['cht'] }}">
+                        <button class="opinion-tag d-ib btn btn-{{ opinion['btn'] }} mb-36" score="{{ opinion['score'] }}" opid="{{ opinion['id'] }}" text="{{ opinion['cht'] }}">
                             <div class="opinion-text d-ib">{{ opinion['cht'] }}</div><div class="opinion-add opinion-toggle d-ib">+</div><div class="opinion-minus opinion-toggle d-ib hidden">-</div>
                         </button>
                         {% endfor %}
@@ -136,7 +138,7 @@
                             <span class="d-ib txt-toggle fs-18 hidden">我今年：</span>
                             <div class="dropdown d-ib" id="age-dropdown">
                                 <button class="btn btn-default dropdown-toggle" type="button" id="age-dropdown-btn" data-toggle="dropdown" aria-expanded="true">
-                                    <span class="btn-text pr-4 fs-18">偷偷透露一下年紀吧</span><span class="caret"></span>
+                                    <span class="btn-text pr-4 fs-18" value="-1">偷偷透露一下年紀吧</span><span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="age-dropdown-btn">
                                     {% for i, age in settings.ages %}
@@ -154,7 +156,7 @@
                             <span class="d-ib txt-toggle fs-18 hidden">我是：</span>
                             <div class="dropdown d-ib" id="gender-dropdown">
                                 <button class="btn btn-default dropdown-toggle" type="button" id="gender-dropdown-btn" data-toggle="dropdown" aria-expanded="true">
-                                    <span class="btn-text pr-4 fs-18">您是男生還是女生</span><span class="caret"></span>
+                                    <span class="btn-text pr-4 fs-18" value="-1">您是男生還是女生</span><span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="gender-dropdown-btn">
                                     <li role="presentation">
@@ -181,12 +183,9 @@
                             </div>
                         </div>
                         <div class="pb-24 f-r">
-                            <button type="submit" class="btn btn-success fs-18">OK ! 送出</button>
+                            <button type="submit" class="btn btn-success fs-18" id="submit-all-btn">OK ! 送出</button>
                         </div>                        
                     </div>
-                    
-
-
                     {% endif %}
                 </div>
             </div>

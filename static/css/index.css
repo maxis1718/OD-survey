@@ -234,3 +234,8 @@ iframe {
 .thanks-container button:focus {
   outline: none;
 }
+
+.scenario-box .fa-check-circle {
+  top: 78px;
+  right: 20px;  
+}
