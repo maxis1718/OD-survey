@@ -73,9 +73,11 @@ sections = {
         {
             'text': u'您覺得,',
             'subTxt': u'哪些場合適合用 APP 點菜?',
+            'triTxt': u'點一下吧 <i class="fa fa-hand-o-right"></i>',
             'form-scenario': True,
             'textClass': 'fc-white fs-48',
             'subTxtClass': 'fc-white',
+            'triTxtClass': 'fc-white pt-24',
             'cssClass': 'bg-themed',
             'left': '4', 'right': '8',
             'id': 'opinion-scenario',

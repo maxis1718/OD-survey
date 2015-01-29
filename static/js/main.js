@@ -6,6 +6,9 @@ $(document).ready(function(){
     // $('.row').find('section').height(section_height-top_height);
     glb_events();
     events();
+
+    submitEvents.bind();
+    // submitEvents.fetch();
 });
 
 function rightNow() {
@@ -14,10 +17,15 @@ function rightNow() {
 }
 
 function glb_events(){
+    // .click(function(e){
+        
+    // });    
+    $(document).on('click', '.box-text', function(e){
+        $(this).siblings('.fa-check-circle').toggleClass('hidden').toggleClass('chosen');
+    });
     $(document).on('click', '.opinion-other', function(e){ 
         if( $(this).hasClass('chosen') ){ 
             $(this).removeClass('chosen');
-            // $(this).find('.opinion-toggle').toggleClass('hidden');
         }
         else { 
             $(this).addClass('chosen'); 
@@ -34,16 +42,10 @@ function events(){
 
     $('#gender-block').find('.info-box').hover(function(e){
         $(this).find('.box-footer').find('.arrow-up').toggleClass('invisible');
-        // $(this).toggleClass('highlight');
     });
-
-    // $('.like-btn-wrap').find('.like-btn').hover(function(e){
-    //     $(this).toggleClass('hidden');
-    // });
 
     $('.toggle').hover(function(e){
         $(this).toggleClass('hidden');
-        // $(this).parent().find('.toggle').toggleClass('hidden');
     });
 
     $('.opinion-tag')
@@ -64,7 +66,7 @@ function events(){
 
             var text = $.trim($(this).val());
             if(text.length == 0){ return false; }
-            var btn = $('<button/>').addClass('opinion-tag opinion-other d-ib btn btn-info mb-36 chosen').attr('score','').attr('opid','').attr('cht',text).appendTo($('.opinions-container'));
+            var btn = $('<button/>').addClass('opinion-tag opinion-other d-ib btn btn-info mb-36 chosen').attr('score','').attr('opid','other').attr('text',text).appendTo($('.opinions-container'));
             $('<div></div>').addClass('opinion-text d-ib').attr('val', 'other').text(text).appendTo(btn);
             $('<div></div>').addClass('opinion-add opinion-toggle d-ib hidden').attr('val', 'other').text('+').appendTo(btn);            
             $('<div></div>').addClass('opinion-minus opinion-toggle d-ib').attr('val', 'other').text('+').appendTo(btn);            
@@ -72,6 +74,10 @@ function events(){
         }
     });
     
+    // $('.scenario-box').find('.box-text').click(function(e){
+    //     $(this).siblings('.fa-check-circle').toggleClass('hidden').toggleClass('chosen');
+    // });
+
     //global
     $('.box-text').hover(function(e){
         if(!$(this).parents('.scenario-box').hasClass('scenario-add')){
@@ -107,13 +113,9 @@ function events(){
             var box = $('<div></div>').addClass('scenario-box f-l p-r');
             $('<div></div>').addClass('box-bg w-100p h-100p default-restaurant').appendTo(box);
             $('<div></div>').addClass('box-text bca-40 p-a fs-24 lh-72 fc-white z-1').attr('scenario',scenario).text(scenario).appendTo(box);
-            // $(this).prepend()
-
+            $('<i></i>').addClass('fa fa-check-circle p-a z-3 fc-white fs-24 chosen').appendTo(box);
 
             $( box ).insertBefore( $(this).parents('.scenario-box') );
-            // console.log(box);
-
-            // restore state
 
             $(this).val('');
             scenarioInputWrap.addClass('hidden');
@@ -128,44 +130,44 @@ function events(){
 
 
 
-function submit(){
+// function submit(){
 
-    var opinions = $.map( $('.opinions-container').find('button.chosen'), function(obj, i){  
-        var score = $.trim($(obj).attr('score'));
-        var opid = $.trim($(obj).attr('opid'));
-        var cht = $.trim($(obj).attr('cht'));
-        score = (typeof score !== typeof undefined && score !== false && score.length > 0) ? parseInt(score) : null;
-        opid = (typeof opid !== typeof undefined && opid !== false && opid.length > 0) ? opid : null;
-        cht = (typeof cht !== typeof undefined && cht !== false && cht.length > 0) ? cht : null;
-        return {'score': score, 'opid': opid, 'cht': cht}; 
-    });
-    var scenarios = $.map( $('.box-badge'), function(obj, i){
-        if(!$(obj).hasClass('hidden')) {
-            return $(obj).siblings('.box-text').attr('scenario');
-        }
-    });
-    var data = { 'opinions': opinions, 'scenarios': scenarios, 'time': rightNow() };
-    $.ajax({
-        url: '/send',
-        type: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        async: false,
-        success: function(resp) {
-            console.log(resp);
-        }
-    });
+//     var opinions = $.map( $('.opinions-container').find('button.chosen'), function(obj, i){  
+//         var score = $.trim($(obj).attr('score'));
+//         var opid = $.trim($(obj).attr('opid'));
+//         var cht = $.trim($(obj).attr('cht'));
+//         score = (typeof score !== typeof undefined && score !== false && score.length > 0) ? parseInt(score) : null;
+//         opid = (typeof opid !== typeof undefined && opid !== false && opid.length > 0) ? opid : null;
+//         cht = (typeof cht !== typeof undefined && cht !== false && cht.length > 0) ? cht : null;
+//         return {'score': score, 'opid': opid, 'cht': cht}; 
+//     });
+//     var scenarios = $.map( $('.box-badge'), function(obj, i){
+//         if(!$(obj).hasClass('hidden')) {
+//             return $(obj).siblings('.box-text').attr('scenario');
+//         }
+//     });
+//     var data = { 'opinions': opinions, 'scenarios': scenarios, 'time': rightNow() };
+//     $.ajax({
+//         url: '/send',
+//         type: 'POST',
+//         data: JSON.stringify(data),
+//         contentType: 'application/json; charset=utf-8',
+//         dataType: 'json',
+//         async: false,
+//         success: function(resp) {
+//             console.log(resp);
+//         }
+//     });
     
-    // $.post("/send" , data, function(resp){});
-}
+//     // $.post("/send" , data, function(resp){});
+// }
 
 
 function bindCommentEvents() {
     var dd = $('#age-dropdown');
     var firstdd = true;
     dd.find('.age-opt').click(function(e){
-        dd.find('.btn-text').text( $(this).text() );
+        dd.find('.btn-text').text( $(this).text() ).attr('value', $(this).attr('value'));
         if(firstdd == true)
         {
             dd.siblings('.txt-toggle').toggleClass('hidden');
@@ -175,7 +177,7 @@ function bindCommentEvents() {
     var gd = $('#gender-dropdown');
     var firstgd = true;
     gd.find('.gender-opt').click(function(e){
-        gd.find('.btn-text').html( $(this).html() );
+        gd.find('.btn-text').html( $(this).html() ).attr('value', $(this).attr('value'));
         if(firstgd == true)
         {
             gd.siblings('.txt-toggle').toggleClass('hidden');
@@ -183,3 +185,65 @@ function bindCommentEvents() {
         }
     });    
 }
+
+var submitEvents = {
+    bind: function(){
+        $('#submit-all-btn').click(function(){
+            var data = submitEvents.fetch();
+            submitEvents.post(data);
+        });
+    },
+    fetch: function(){
+        var chosenOpinionObjs = $('.opinions-container').find('.chosen');
+        var chosenScenarioObjs = $('.scenario-box').find('.chosen');
+
+        var opinionID = $.map(chosenOpinionObjs, function(obj, i){ return $(obj).attr('opid'); });
+        var opinionText = $.map(chosenOpinionObjs, function(obj, i){ return ; });
+        var opinionScore = $.map(chosenOpinionObjs, function(obj, i){ return $(obj).attr('score'); });
+
+        var opinions = $.map(chosenOpinionObjs, function(obj, i){  
+
+            return {'score': $(obj).attr('score'), 'opid': $(obj).attr('opid'), 'text': $(obj).attr('text')};
+        });
+
+        // collect scenarios
+        var scenarios = $.map(chosenScenarioObjs, function(obj, i){
+            return $(obj).siblings('.box-text').attr('scenario');
+        });
+        var textarea = $.trim($('.comments-container').find('textarea').val());
+
+        var age = $('#age-dropdown-btn').find('.btn-text').attr('value');
+        var gender = $('#gender-dropdown-btn').find('.btn-text').attr('value');
+
+        var data = {
+            'opinions': opinions,
+            'scenarios': scenarios,
+            'textarea': textarea,
+            'age': age,
+            'gender': gender,
+            'time': rightNow(),
+        }
+        return data;
+        // console.log(data);
+    },
+    post: function(data){
+        console.log(data);
+
+        $.ajax({
+            url: '/send',
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+        }).done(function(resp){
+            console.log('receive response from ');
+            console.log(resp);
+        });
+    }
+
+}
+
+function bindSubmitEvents() {
+    
+}
+
