@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-SITE_TITLE = u" 歐低 用手機點菜"
+SITE_TITLE = u"APP 點菜 ?"
 
 APPLE_BADGE = 'app-store-badge.svg'
 GOOGLE_BADGE = 'google-play.png'
