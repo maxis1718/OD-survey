@@ -94,7 +94,7 @@
                         <div class="box-bg w-100p h-100p">
                             <img src="{{ url_for('static', filename='images/'+src+'.png') }}" class="w-100p h-100p">
                         </div>
-                        <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1" scenario="{{ src }}">
+                        <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1 listening" scenario="{{ src }}">
                             <span>{{ scenario }}</span>
                         </div>
                         <i class="fa fa-check-circle p-a z-3 fc-white fs-24 hidden"></i>
@@ -124,7 +124,7 @@
 
                     {% if 'form-comment' in section and section['form-comment'] %}
                     <div class="comments-container mb-48 mt-96">
-                        <textarea class="form-control fs-24 mb-18 pr-18 pl-18 pt-12 pb-12" placeholder="把想法都寫在這吧..." rows="3"></textarea>
+                        <textarea class="form-control fs-24 mb-18 pr-18 pl-18 pt-12 pb-12 listening" placeholder="把想法都寫在這吧..." rows="3"></textarea>
                         <div class="f-r">
                             <button type="submit" class="btn btn-primary ol-0 hidden">Say it loud</button>
                         </div>
@@ -137,7 +137,7 @@
                             <span class="d-ib txt-toggle fs-18">最後，</span>
                             <span class="d-ib txt-toggle fs-18 hidden">我今年：</span>
                             <div class="dropdown d-ib" id="age-dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="age-dropdown-btn" data-toggle="dropdown" aria-expanded="true">
+                                <button class="btn btn-default dropdown-toggle listening" type="button" id="age-dropdown-btn" data-toggle="dropdown" aria-expanded="true">
                                     <span class="btn-text pr-4 fs-18" value="-1">偷偷透露一下年紀吧</span><span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="age-dropdown-btn">
@@ -155,7 +155,7 @@
                             <span class="d-ib txt-toggle fs-18">那，</span>
                             <span class="d-ib txt-toggle fs-18 hidden">我是：</span>
                             <div class="dropdown d-ib" id="gender-dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="gender-dropdown-btn" data-toggle="dropdown" aria-expanded="true">
+                                <button class="btn btn-default dropdown-toggle listening" type="button" id="gender-dropdown-btn" data-toggle="dropdown" aria-expanded="true">
                                     <span class="btn-text pr-4 fs-18" value="-1">您是男生還是女生</span><span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="gender-dropdown-btn">
@@ -182,8 +182,19 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="pb-24 f-r">
-                            <button type="submit" class="btn btn-success fs-18" id="submit-all-btn">OK ! 送出</button>
+                        <div class="pb-24 f-r button-groups">
+                            <button type="submit" class="btn btn-primary fs-18" id="submit-all-btn">
+                                <span>送出！</span>
+                                <i class="fa fa-paper-plane"> </i>
+                            </button>
+                            <button type="" class="btn btn-primary fs-18 hidden" id="pending-btn" disabled>
+                                <span>請稍等</span>
+                                <i class="fa-spin fa fa-cog"> </i>
+                            </button>
+                            <button type="" class="btn btn-success fs-18 hidden" id="thanks-btn">
+                                <span>謝謝您</span>
+                                <i class="fa fa-smile-o"> </i>
+                            </button>
                         </div>                        
                     </div>
                     {% endif %}
