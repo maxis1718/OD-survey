@@ -1,14 +1,8 @@
 
 $(document).ready(function(){
-
-    // var section_height = $( window ).height();
-    // var top_height = $('#navbar-top').height();
-    // $('.row').find('section').height(section_height-top_height);
     glb_events();
     events();
-
     submitEvents.bind();
-    // submitEvents.fetch();
 });
 
 function rightNow() {
@@ -17,9 +11,6 @@ function rightNow() {
 }
 
 function glb_events(){
-    // .click(function(e){
-        
-    // });    
     $(document).on('click', '.box-text', function(e){
         $(this).siblings('.fa-check-circle').toggleClass('hidden').toggleClass('chosen');
     });
@@ -28,14 +19,13 @@ function glb_events(){
             $(this).removeClass('chosen');
         }
         else { 
-            $(this).addClass('chosen'); 
-            // $(this).find('.opinion-toggle').toggleClass('hidden');
+            $(this).addClass('chosen');
         }
     }).on('mouseenter', '.opinion-other', function(e){
         $(this).addClass('highlight'); 
     }).on('mouseleave', '.opinion-other', function(e){
         $(this).removeClass('highlight'); 
-    });
+    });   
 }
 
 function events(){
@@ -73,10 +63,6 @@ function events(){
             $(this).val('');
         }
     });
-    
-    // $('.scenario-box').find('.box-text').click(function(e){
-    //     $(this).siblings('.fa-check-circle').toggleClass('hidden').toggleClass('chosen');
-    // });
 
     //global
     $('.box-text').hover(function(e){
@@ -92,12 +78,10 @@ function events(){
 
     scenarioPlus.click(function(e){
         scenarioToggle.toggleClass('hidden');
-        // $(this).addClass('hidden');
         $(this).siblings('.scenario-more-input-wrap').removeClass('hidden').find('input').focus();
     });
 
     scenarioInput.blur(function(e){
-        console.log('$(this).val().length:',$(this).val().length);
         if($.trim($(this).val()).length == 0){
             scenarioInputWrap.addClass('hidden');
             scenarioPlus.removeClass('hidden');
@@ -109,7 +93,6 @@ function events(){
         if(e.which == 13 || e.keyCode == 13){
             var scenario = $.trim($(this).val());
             if(scenario.length == 0){ return false; }
-            // console.log(scenario);
             var box = $('<div></div>').addClass('scenario-box f-l p-r');
             $('<div></div>').addClass('box-bg w-100p h-100p default-restaurant').appendTo(box);
             $('<div></div>').addClass('box-text bca-40 p-a fs-24 lh-72 fc-white z-1').attr('scenario',scenario).text(scenario).appendTo(box);
@@ -120,48 +103,12 @@ function events(){
             $(this).val('');
             scenarioInputWrap.addClass('hidden');
             scenarioPlus.removeClass('hidden');
-            // clear 
         }
     });
 
     bindCommentEvents();
 
 }
-
-
-
-// function submit(){
-
-//     var opinions = $.map( $('.opinions-container').find('button.chosen'), function(obj, i){  
-//         var score = $.trim($(obj).attr('score'));
-//         var opid = $.trim($(obj).attr('opid'));
-//         var cht = $.trim($(obj).attr('cht'));
-//         score = (typeof score !== typeof undefined && score !== false && score.length > 0) ? parseInt(score) : null;
-//         opid = (typeof opid !== typeof undefined && opid !== false && opid.length > 0) ? opid : null;
-//         cht = (typeof cht !== typeof undefined && cht !== false && cht.length > 0) ? cht : null;
-//         return {'score': score, 'opid': opid, 'cht': cht}; 
-//     });
-//     var scenarios = $.map( $('.box-badge'), function(obj, i){
-//         if(!$(obj).hasClass('hidden')) {
-//             return $(obj).siblings('.box-text').attr('scenario');
-//         }
-//     });
-//     var data = { 'opinions': opinions, 'scenarios': scenarios, 'time': rightNow() };
-//     $.ajax({
-//         url: '/send',
-//         type: 'POST',
-//         data: JSON.stringify(data),
-//         contentType: 'application/json; charset=utf-8',
-//         dataType: 'json',
-//         async: false,
-//         success: function(resp) {
-//             console.log(resp);
-//         }
-//     });
-    
-//     // $.post("/send" , data, function(resp){});
-// }
-
 
 function bindCommentEvents() {
     var dd = $('#age-dropdown');
@@ -186,11 +133,18 @@ function bindCommentEvents() {
     });    
 }
 
+
 var submitEvents = {
     bind: function(){
         $('#submit-all-btn').click(function(){
             var data = submitEvents.fetch();
             submitEvents.post(data);
+        });
+
+        $('.listening').click(function(){
+            if($('#submit-all-btn').hasClass('hidden')) {
+                submitEvents.resetStatus();
+            }
         });
     },
     fetch: function(){
@@ -218,32 +172,37 @@ var submitEvents = {
         var data = {
             'opinions': opinions,
             'scenarios': scenarios,
-            'textarea': textarea,
+            'comments': textarea,
             'age': age,
             'gender': gender,
             'time': rightNow(),
         }
         return data;
-        // console.log(data);
     },
     post: function(data){
         console.log(data);
 
         $.ajax({
-            url: '/send',
+            url: '/digest',
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
+            beforeSend: function(){
+                $('#submit-all-btn').addClass('hidden');
+                $('#pending-btn').removeClass('hidden');
+            },
         }).done(function(resp){
-            console.log('receive response from ');
-            console.log(resp);
+            console.log('response:', resp);
+            $('#pending-btn').addClass('hidden');
+            $('#thanks-btn').removeClass('hidden');
+        
         });
+    },
+    resetStatus: function(){
+
+        $('#pending-btn').addClass('hidden');
+        $('#thanks-btn').addClass('hidden');
+        $('#submit-all-btn').removeClass('hidden');
     }
-
 }
-
-function bindSubmitEvents() {
-    
-}
-
