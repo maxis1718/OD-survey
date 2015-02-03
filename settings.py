@@ -5,34 +5,54 @@ SITE_TITLE = u"APP 點菜 ?"
 APPLE_BADGE = 'app-store-badge.svg'
 GOOGLE_BADGE = 'google-play.png'
 
+LOOP_CONTROL = True
+LOOP_INDICATORS = False
+LOOP_IMAGES = [
+    {
+        'order': 0,
+        'file': 'demo/qrcode.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 1,
+        'file': 'demo/menu.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 2,
+        'file': 'demo/history.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 3,
+        'file': 'demo/done.png',
+        'stay': 20,
+        'url': '#',
+    },
+]
+LOOP_INTERVAL = 20
+
+
 sections = {
     'demo-heading': [
-        # {
-        #     'text': u'如果,',
-        #     'subTxt': u'點菜可以這樣:',
-        #     'phone': True,
-        #     'scenario': False,
-        #     'textClass': 'fc-black',
-        #     'subTxtClass': 'fc-black',                  
-        #     'cssClass': 'pt-160 b-w',
-        #     'image': {'demo': 'demo/qrcode.png' }
-        # },
         {
             'text': u'如果,',
             'subTxt': u'點菜可以這樣:',
             'phone': True,
-            'scenario': False,
             'textClass': 'fc-black',
             'subTxtClass': 'fc-black',                  
             'cssClass': 'pt-192 b-w',
-            'image': {'demo': 'demo/menu.png' }
+            'image': { 'demo': sorted(LOOP_IMAGES, key=lambda x:x['order'])[1]['file'] },
+            'loop': True,
         },
         {
             'text': u'輕輕一滑',
             'subTxt': u'點了什麼都一目了然  <i class="fa fa-smile-o"></i>',
             'triTxt': u'',
             'phone': True,
-            'scenario': False,
             'textClass': 'fc-black',
             'subTxtClass': 'fc-black',
             'cssClass': 'pt-192 b-w',
@@ -41,9 +61,7 @@ sections = {
         {
             'text': u'無論是在',
             'subTxt': u'文青的咖啡廳，還是熱鬧的快炒店',
-            'phone': False,
             'scenario': True,
-            # 'id': 'survey-good-place',
             'left': '4', 'right': '8',
             'textClass': 'fc-white',
             'subTxtClass': 'fc-white',
@@ -55,7 +73,6 @@ sections = {
             'textClass': 'fc-black',
             'badges': False,
             'phone': True,
-            'scenario': False,
             'cssClass': 'pt-192',
             'image': {'demo': 'demo/done.png' }
         },
@@ -85,7 +102,6 @@ sections = {
         {
             'text': u'等等',
             'subTxt': u'我還有話要說：',
-            # 'form-thanks': True,
             'form-comment': True,
             'textClass': 'fc-white fs-48',
             'subTxtClass': 'fc-white',
