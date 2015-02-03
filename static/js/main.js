@@ -3,7 +3,10 @@ $(document).ready(function(){
     glb_events();
     events();
     submitEvents.bind();
+}).load(function(){
+    
 });
+
 
 function rightNow() {
     var d = new Date();
@@ -29,6 +32,8 @@ function glb_events(){
 }
 
 function events(){
+
+    $('.carousel').carousel();
 
     $('#gender-block').find('.info-box').hover(function(e){
         $(this).find('.box-footer').find('.arrow-up').toggleClass('invisible');
@@ -132,6 +137,12 @@ function bindCommentEvents() {
         }
     });    
 }
+
+
+// var loopTimer = setInterval(loop, 2000);
+// function loop(){
+//     loopTimer
+// }
 
 
 var submitEvents = {

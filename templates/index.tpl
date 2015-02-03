@@ -23,6 +23,7 @@
 <i class="fa fa-transgender pl-8 hidden"></i>
 <i class="fa fa-venus pl-8 hidden"></i>
 
+
 <header class="header header-main z-5 w-100p hidden" role="banner">
     <nav class="navbar navbar-default b-0 br-0 mb-0 bg-n bs-n mh-64" role="navigation">
         <section class="col-lg-12">
@@ -67,11 +68,38 @@
                 </div>
                 <div class="col-lg-{{ 7 if 'right' not in section else section['right'] }} col-md-12 col-sm-12">
 
+                    {% if 'loop' in section and section['loop'] %}
+
+                    <div class="loop-img-container m-0a ov-h">
+                        <div class="loop-img-wrap">
+                            <div id="carousel-images" class="carousel slide" data-ride="carousel">
+                                  <ol class="carousel-indicators {{ 'hidden' if not settings.LOOP_INDICATORS else '' }}">
+                                  {% for loop_img in settings.LOOP_IMAGES %}
+                                    <li data-target="#carousel-images" data-slide-to="{{ loop_img['order'] }}" class="{{ 'active' if loop_img['order'] == 0 }}"></li>
+                                    {% endfor %}
+                                  </ol>
+                                  <div class="carousel-inner" role="listbox">
+                                  {% for loop_img in settings.LOOP_IMAGES %}
+                                    <div class="item {{ 'active' if loop_img['order'] == 0 }}">
+                                        <img src="{{ url_for('static', filename='img') }}/{{ loop_img['file'] }}" alt="loop_img['file']">
+                                    </div>
+                                    {% endfor %}
+                                  </div>
+                                  <a class="left carousel-control {{ 'hidden' if not settings.LOOP_CONTROL else '' }}" href="#carousel-images" role="button" data-slide="prev">
+                                    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                                  </a>
+                                  <a class="right carousel-control {{ 'hidden' if not settings.LOOP_CONTROL else '' }}" href="#carousel-images" role="button" data-slide="next">
+                                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                  </a>
+                            </div>  
+                        </div>
+                    </div>                                          
+                    {% endif %}
+
                     <!-- demo -->
-                    {% if 'phone' in section and section['phone'] and 'image' in section %}
-                    <div id="demo-img-wrap" class="m-0a ov-h">
+                    {% if 'phone' in section and 'loop' not in section and section['phone'] and 'image' in section %}
+                    <div class="demo-img-wrap m-0a ov-h">
                         <img src="{{ url_for('static', filename='img') }}/{{ section['image']['demo'] }}" class="">
-                    }
                     </div>
                     {% endif %}
 
