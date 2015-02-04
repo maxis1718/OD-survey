@@ -53,7 +53,14 @@ LOOP_IMAGES = [
 ]
 LOOP_INTERVAL = 20
 
-
+scenarios = [(u'café', 'cafe.jpg'),
+    (u'熱炒', "taiwan.jpg"), 
+    (u'居酒屋', 'izakaya.jpg'), 
+    (u'拉麵', 'ramen.jpg'), 
+    (u'酒吧', 'bar.jpg'), 
+    (u'下午茶', 'tea.jpg'), 
+    (u'早餐店', 'brunch.jpg')
+]
 sections = {
     'demo-heading': [
         {

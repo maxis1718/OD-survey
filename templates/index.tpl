@@ -105,10 +105,10 @@
 
                     <!-- scenario -->
                     {% if 'scenario' in section and section['scenario'] %}
-                    {% for scenario, src in scenarios %}
+                    {% for scenario, src in settings.scenarios %}
                     <div class="scenario-box d-ib p-r">
                         <div class="box-bg w-100p h-100p">
-                            <img src="{{ url_for('static', filename='images/'+src+'.png') }}" class="w-100p h-100p">
+                            <img src="{{ url_for('static', filename='images/'+src) }}" class="w-100p h-100p">
                         </div>
                         <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1" scenario="{{ src }}">{{ scenario }}</div>
                     </div>
@@ -117,12 +117,12 @@
 
                     <!-- form -->
                     {% if 'form-scenario' in section and settings.form %}
-                    {% for scenario, src in scenarios %}
+                    {% for scenario, src in settings.scenarios %}
                     <div class="scenario-box f-l p-r">
                         <div class="box-bg w-100p h-100p">
-                            <img src="{{ url_for('static', filename='images/'+src+'.png') }}" class="w-100p h-100p">
+                            <img src="{{ url_for('static', filename='images/'+src) }}" class="w-100p h-100p">
                         </div>
-                        <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1 listening" scenario="{{ src }}">
+                        <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1 listening ov-h" scenario="{{ src }}">
                             <span>{{ scenario }}</span>
                         </div>
                         <i class="fa fa-check-circle p-a z-3 fc-white fs-24 hidden"></i>
@@ -131,7 +131,6 @@
                     <div class="scenario-box scenario-add f-l p-r">
                         <div class="box-text p-a fs-48 lh-64 fc-c z-1 scenario-more-plus" scenario="">+</div>
                         <div class="box-text p-a lh-24 z-1 scenario-more-input-wrap hidden"><input class="scenario-more-input fs-24 mt-18 fc-white lh-24" val="123"/></div>
-                        
                     </div>
                     {% endif %}
 

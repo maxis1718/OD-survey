@@ -100,7 +100,7 @@ function events(){
             if(scenario.length == 0){ return false; }
             var box = $('<div></div>').addClass('scenario-box f-l p-r');
             $('<div></div>').addClass('box-bg w-100p h-100p default-restaurant').appendTo(box);
-            $('<div></div>').addClass('box-text bca-40 p-a fs-24 lh-72 fc-white z-1').attr('scenario',scenario).text(scenario).appendTo(box);
+            $('<div></div>').addClass('box-text bca-40 p-a fs-24 lh-72 fc-white z-1 ov-h').attr('scenario',scenario).text(scenario).appendTo(box);
             $('<i></i>').addClass('fa fa-check-circle p-a z-3 fc-white fs-24 chosen').appendTo(box);
 
             $( box ).insertBefore( $(this).parents('.scenario-box') );
