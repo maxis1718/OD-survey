@@ -22,12 +22,30 @@ LOOP_IMAGES = [
     },
     {
         'order': 2,
-        'file': 'demo/history.png',
+        'file': 'demo/menu_2.png',
         'stay': 20,
         'url': '#',
     },
     {
         'order': 3,
+        'file': 'demo/menu_3.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 4,
+        'file': 'demo/history.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 5,
+        'file': 'demo/history_2.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 6,
         'file': 'demo/done.png',
         'stay': 20,
         'url': '#',
