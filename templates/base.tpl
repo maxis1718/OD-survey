@@ -8,7 +8,7 @@
     <meta name="title" content="{% block meta_title %}{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
     <meta name="description" content="{% block meta_description %}{% endblock %}">
-    <title>{{ title }}</title>
+    <title>{{ settings.SITE_TITLE }}</title>
 
     <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
 
