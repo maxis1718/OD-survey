@@ -127,8 +127,7 @@ Session = sessionmaker(bind=engine)
 
 @app.route('/')
 def show_index():
-    scenarios = [ (u'café', 'cafe'), (u'熱炒', "taiwan"), (u'居酒屋', 'izakaya'), (u'拉麵', 'ramen'), (u'酒吧', 'bar'), (u'下午茶', 'tea'), (u'早餐店', 'brunch')]
-    return render_template( 'index.tpl', title=settings.SITE_TITLE, scenarios=scenarios, settings=settings )
+    return render_template( 'index.tpl', settings=settings )
 
 @app.route('/digest', methods=['GET', 'POST'])
 def digest():

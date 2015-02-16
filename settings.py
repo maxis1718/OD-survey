@@ -5,6 +5,8 @@ SITE_TITLE = u"APP 點菜 ?"
 APPLE_BADGE = 'app-store-badge.svg'
 GOOGLE_BADGE = 'google-play.png'
 
+DEMO_URL = 'https://moqups.com/jordan00830@gmail.com/rwGGjJuF/p:afc8a2376'
+
 LOOP_CONTROL = True
 LOOP_INDICATORS = False
 LOOP_IMAGES = [
@@ -22,12 +24,30 @@ LOOP_IMAGES = [
     },
     {
         'order': 2,
-        'file': 'demo/history.png',
+        'file': 'demo/menu_2.png',
         'stay': 20,
         'url': '#',
     },
     {
         'order': 3,
+        'file': 'demo/menu_3.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 4,
+        'file': 'demo/history.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 5,
+        'file': 'demo/history_2.png',
+        'stay': 20,
+        'url': '#',
+    },
+    {
+        'order': 6,
         'file': 'demo/done.png',
         'stay': 20,
         'url': '#',
@@ -35,7 +55,15 @@ LOOP_IMAGES = [
 ]
 LOOP_INTERVAL = 20
 
-
+scenarios = [(u'café', 'cafe.jpg', [u'星巴克']),
+    (u'熱炒', 'taiwan.jpg', []), 
+    (u'居酒屋', 'izakaya.jpg', []), 
+    (u'拉麵', 'ramen.jpg', []), 
+    (u'酒吧', 'bar.jpg', []), 
+    (u'下午茶', 'tea.jpg', []), 
+    (u'早餐店', 'brunch.jpg', ['']),
+    (u'西餐', 'steak.jpg', [u'王品', u'茹絲葵'])
+]
 sections = {
     'demo-heading': [
         {

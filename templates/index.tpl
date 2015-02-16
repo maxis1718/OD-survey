@@ -52,8 +52,8 @@
             <div class="col-lg-12">
                 <div class="col-lg-{{ '5' if 'left' not in section else section['left'] }} col-md-12 col-sm-12 mt-72 pb-36">
                     {% if section['text'] %}<h1 class="fs-64 fw-600 mb-14 pl-18 {{ '' if 'textClass' not in section else section['textClass'] }}">{{ section['text'] }}</h1>{% endif %}
-                    {% if section['subTxt'] %}<p class="fs-24 mb-14 pl-24 {{ '' if 'subTxtClass' not in section else section['subTxtClass'] }}">{{ section['subTxt'] }}</p>{% endif %}
-                    {% if section['triTxt'] %}<p class="fs-18 mb-14 pl-24 {{ '' if 'triTxtClass' not in section else section['triTxtClass'] }}">{{ section['triTxt'] }}</p>{% endif %}
+                    {% if section['subTxt'] %}<p class="fs-24 mb-14 pl-18 {{ '' if 'subTxtClass' not in section else section['subTxtClass'] }}">{{ section['subTxt'] }}</p>{% endif %}
+                    {% if section['triTxt'] %}<p class="fs-18 mb-14 pl-18 {{ '' if 'triTxtClass' not in section else section['triTxtClass'] }}">{{ section['triTxt'] }}</p>{% endif %}
 
                     {% if section['badges'] %}
                     <ul class="badge-container w-100p pt-24 pb-18 ta-c">
@@ -73,24 +73,26 @@
                     <div class="loop-img-container m-0a ov-h">
                         <div class="loop-img-wrap">
                             <div id="carousel-images" class="carousel slide" data-ride="carousel">
-                                  <ol class="carousel-indicators {{ 'hidden' if not settings.LOOP_INDICATORS else '' }}">
-                                  {% for loop_img in settings.LOOP_IMAGES %}
-                                    <li data-target="#carousel-images" data-slide-to="{{ loop_img['order'] }}" class="{{ 'active' if loop_img['order'] == 0 }}"></li>
+                                <a href="{{  settings.DEMO_URL }}" target="_blank">
+                                    <ol class="carousel-indicators {{ 'hidden' if not settings.LOOP_INDICATORS else '' }}">
+                                    {% for loop_img in settings.LOOP_IMAGES %}
+                                        <li data-target="#carousel-images" data-slide-to="{{ loop_img['order'] }}" class="{{ 'active' if loop_img['order'] == 0 }}"></li>
                                     {% endfor %}
-                                  </ol>
-                                  <div class="carousel-inner" role="listbox">
-                                  {% for loop_img in settings.LOOP_IMAGES %}
-                                    <div class="item {{ 'active' if loop_img['order'] == 0 }}">
-                                        <img src="{{ url_for('static', filename='img') }}/{{ loop_img['file'] }}" alt="loop_img['file']">
-                                    </div>
-                                    {% endfor %}
-                                  </div>
-                                  <a class="left carousel-control {{ 'hidden' if not settings.LOOP_CONTROL else '' }}" href="#carousel-images" role="button" data-slide="prev">
+                                    </ol>
+                                </a>
+                                <div class="carousel-inner" role="listbox">
+                                {% for loop_img in settings.LOOP_IMAGES %}
+                                <div class="item {{ 'active' if loop_img['order'] == 0 }}">
+                                    <img src="{{ url_for('static', filename='img') }}/{{ loop_img['file'] }}" alt="loop_img['file']">
+                                </div>
+                                {% endfor %}
+                                </div>
+                                <a class="left carousel-control {{ 'hidden' if not settings.LOOP_CONTROL else '' }}" href="#carousel-images" role="button" data-slide="prev">
                                     <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
-                                  </a>
-                                  <a class="right carousel-control {{ 'hidden' if not settings.LOOP_CONTROL else '' }}" href="#carousel-images" role="button" data-slide="next">
+                                </a>
+                                <a class="right carousel-control {{ 'hidden' if not settings.LOOP_CONTROL else '' }}" href="#carousel-images" role="button" data-slide="next">
                                     <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                  </a>
+                                </a>
                             </div>  
                         </div>
                     </div>                                          
@@ -105,33 +107,42 @@
 
                     <!-- scenario -->
                     {% if 'scenario' in section and section['scenario'] %}
-                    {% for scenario, src in scenarios %}
+                    {% for scenario, src, examples in settings.scenarios %}
                     <div class="scenario-box d-ib p-r">
                         <div class="box-bg w-100p h-100p">
-                            <img src="{{ url_for('static', filename='images/'+src+'.png') }}" class="w-100p h-100p">
+                            <img src="{{ url_for('static', filename='images/'+src) }}" class="w-100p h-100p">
                         </div>
                         <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1" scenario="{{ src }}">{{ scenario }}</div>
+                        <div class="example-badges-container p-a pl-8 ta-r">
+                        {% for example in examples %}
+                        <span class="badge p-r">{{ example }}</span>
+                        {% endfor %}                            
+                        </div>
                     </div>
                     {% endfor %}
                     {% endif %}
 
                     <!-- form -->
                     {% if 'form-scenario' in section and settings.form %}
-                    {% for scenario, src in scenarios %}
+                    {% for scenario, src, examples in settings.scenarios %}
                     <div class="scenario-box f-l p-r">
                         <div class="box-bg w-100p h-100p">
-                            <img src="{{ url_for('static', filename='images/'+src+'.png') }}" class="w-100p h-100p">
+                            <img src="{{ url_for('static', filename='images/'+src) }}" class="w-100p h-100p">
                         </div>
-                        <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1 listening" scenario="{{ src }}">
+                        <div class="box-text bca-40 p-a fs-24 lh-72 fc-white z-1 listening ov-h" scenario="{{ src }}">
                             <span>{{ scenario }}</span>
                         </div>
+                        <div class="example-badges-container p-a pl-8 ta-r">
+                        {% for example in examples %}
+                        <span class="badge p-r">{{ example }}</span>
+                        {% endfor %}                            
+                        </div>                        
                         <i class="fa fa-check-circle p-a z-3 fc-white fs-24 hidden"></i>
                     </div>
                     {% endfor %}
                     <div class="scenario-box scenario-add f-l p-r">
                         <div class="box-text p-a fs-48 lh-64 fc-c z-1 scenario-more-plus" scenario="">+</div>
                         <div class="box-text p-a lh-24 z-1 scenario-more-input-wrap hidden"><input class="scenario-more-input fs-24 mt-18 fc-white lh-24" val="123"/></div>
-                        
                     </div>
                     {% endif %}
 
