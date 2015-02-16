@@ -5,6 +5,8 @@ SITE_TITLE = u"APP 點菜 ?"
 APPLE_BADGE = 'app-store-badge.svg'
 GOOGLE_BADGE = 'google-play.png'
 
+DEMO_URL = 'https://moqups.com/jordan00830@gmail.com/rwGGjJuF/p:afc8a2376'
+
 LOOP_CONTROL = True
 LOOP_INDICATORS = False
 LOOP_IMAGES = [
@@ -53,13 +55,14 @@ LOOP_IMAGES = [
 ]
 LOOP_INTERVAL = 20
 
-scenarios = [(u'café', 'cafe.jpg'),
-    (u'熱炒', "taiwan.jpg"), 
-    (u'居酒屋', 'izakaya.jpg'), 
-    (u'拉麵', 'ramen.jpg'), 
-    (u'酒吧', 'bar.jpg'), 
-    (u'下午茶', 'tea.jpg'), 
-    (u'早餐店', 'brunch.jpg')
+scenarios = [(u'café', 'cafe.jpg', [u'星巴克']),
+    (u'熱炒', 'taiwan.jpg', []), 
+    (u'居酒屋', 'izakaya.jpg', []), 
+    (u'拉麵', 'ramen.jpg', []), 
+    (u'酒吧', 'bar.jpg', []), 
+    (u'下午茶', 'tea.jpg', []), 
+    (u'早餐店', 'brunch.jpg', ['']),
+    (u'西餐', 'steak.jpg', [u'王品', u'茹絲葵'])
 ]
 sections = {
     'demo-heading': [
