@@ -1,4 +1,7 @@
 
+// config
+var MaxCharOpinion = 10;
+
 $(document).ready(function(){
     glb_events();
     events();
@@ -162,6 +165,9 @@ var submitEvents = {
         var chosenOpinionObjs = $('.opinions-container').find('.chosen');
         var chosenScenarioObjs = $('.scenario-box').find('.chosen');
 
+        // filter out potential garbage opinions/comments
+        chosenOpinionObjs = chosenOpinionObjs.filter(function(i, obj){ return $(obj).attr('text').length < MaxCharOpinion; });
+        
         var opinionID = $.map(chosenOpinionObjs, function(obj, i){ return $(obj).attr('opid'); });
         var opinionText = $.map(chosenOpinionObjs, function(obj, i){ return ; });
         var opinionScore = $.map(chosenOpinionObjs, function(obj, i){ return $(obj).attr('score'); });
