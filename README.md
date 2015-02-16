@@ -1,7 +1,8 @@
 歐低點菜
 ======
 
-[![Build Status](https://travis-ci.org/fxxkit/OD-survey.svg?branch=develop)](https://travis-ci.org/fxxkit/OD-survey)
+[![Build Status](https://travis-ci.org/fxxkit/OD-survey.svg?branch=develop)](https://travis-ci.org/fxxkit/OD-survey) 
+[![GitHub version](https://badge.fury.io/gh/fxxkit%2FOD-survey.svg)](http://badge.fury.io/gh/fxxkit%2FOD-survey)
 
 ## prerequisite
 
