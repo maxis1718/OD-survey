@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, url_for, make_response, Response, jsonify, request
+from flask import Flask, render_template, url_for, make_response, Response, jsonify, request, send_from_directory
 import settings
 import json
 import datetime
-import pymongo
+import os
 
 import hashlib
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import ForeignKey
-from sqlalchemy.orm import relationship, backref
 from sqlalchemy.orm import sessionmaker
 
 app = Flask(__name__)
@@ -128,6 +126,17 @@ Session = sessionmaker(bind=engine)
 @app.route('/')
 def show_index():
     return render_template( 'index.tpl', settings=settings )
+
+@app.route('/dump', methods=['GET', 'POST'])
+def dump_db():
+    if request.method == 'GET' and 'key' in request.args and request.args.get('key') == 'gotopoopoo':
+        if os.path.exists( 'survery.db' ):
+            return send_from_directory( directory='.', filename="survery.db" )
+        else:
+            return "<h1>No Database found.</h1>"
+    else:
+        return '<h1>Permission denied</h1>'
+            
 
 @app.route('/digest', methods=['GET', 'POST'])
 def digest():
